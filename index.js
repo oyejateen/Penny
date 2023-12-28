@@ -14,11 +14,11 @@ app.use(express.static('public'));
 const lettersFilePath = path.join(__dirname, 'letters.json');
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index.ejs');
 });
 
 app.get('/wtf', (req, res) => {
-    res.render('wtf');
+    res.render('wtf.ejs');
 });
 
 app.post('/create', async (req, res) => {
@@ -40,7 +40,7 @@ app.get('/letter/:id', async (req, res) => {
     const htmlLetter = await getLetterById(req.params.id);
 
     if (htmlLetter) {
-        res.render('letter', { htmlLetter });
+        res.render('letter.ejs', { htmlLetter });
     } else {
         res.status(404).send('Letter not found');
     }
