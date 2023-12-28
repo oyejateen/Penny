@@ -1,0 +1,8 @@
+.upm
+node_modules
+package-lock.json
+letters.json
+.git
+.config
+.replit
+replit.nix
